@@ -1,9 +1,11 @@
 import { QueryProvider, ShadCnSidebarProvider } from '@/providers';
 import { AppSidebar } from '@/components/sidebar/AppSidebar';
-import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
+import { AppNavbar } from '@/components/navbar';
+import { Suspense } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,16 +33,16 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
+          <Suspense>
+            <AppNavbar />
+          </Suspense>
+
           <ShadCnSidebarProvider>
             <AppSidebar />
-            {/* <main>
+            <main>
               <SidebarTrigger />
               {children}
-            </main> */}
-            <SidebarInset>
-              <SidebarTrigger />
-              <main>{children}</main>
-            </SidebarInset>
+            </main>
           </ShadCnSidebarProvider>
         </QueryProvider>
       </body>

@@ -9,7 +9,8 @@ export const ShadCnSidebarProvider =
 
     return (
       <SidebarProvider
-      // defaultOpen={defaultOpen}
+        className="h-[calc(100%-64px)]"
+        // defaultOpen={defaultOpen}
       >
         {children}
       </SidebarProvider>
