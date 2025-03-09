@@ -1,5 +1,7 @@
+import { QueryProvider, ShadCnSidebarProvider } from '@/providers';
+import { AppSidebar } from '@/components/sidebar/AppSidebar';
+import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { Providers } from '@/providers';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -28,7 +30,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <QueryProvider>
+          <ShadCnSidebarProvider>
+            <AppSidebar />
+            {/* <main>
+              <SidebarTrigger />
+              {children}
+            </main> */}
+            <SidebarInset>
+              <SidebarTrigger />
+              <main>{children}</main>
+            </SidebarInset>
+          </ShadCnSidebarProvider>
+        </QueryProvider>
       </body>
     </html>
   );
