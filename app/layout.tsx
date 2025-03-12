@@ -3,8 +3,7 @@ import { AppSidebar } from '@/components/sidebar/AppSidebar';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
-import { AppNavbar } from '@/components/navbar';
-import { Suspense } from 'react';
+
 import CustomSidebarTrigger from '@/components/sidebar/CustomSidebarTrigger';
 
 const geistSans = Geist({
@@ -33,10 +32,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <Suspense>
-            <AppNavbar />
-          </Suspense>
-
           <ShadCnSidebarProvider>
             <AppSidebar />
             <main>
