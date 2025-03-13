@@ -13,8 +13,8 @@ export const MessageList = () => {
   });
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="w-4/5 flex flex-col">
+    <div className="flex w-full flex-col items-center">
+      <div className="flex w-4/5 flex-col">
         {messages.map((msg) => (
           <Message
             content={msg.content}

@@ -17,7 +17,7 @@ export function Message({
   return (
     <div
       className={cn(
-        'flex w-full gap-2 mb-4',
+        'mb-4 flex w-full gap-2',
         isUser ? 'justify-end' : 'justify-start',
       )}
     >
@@ -28,21 +28,21 @@ export function Message({
         </Avatar>
       )}
 
-      <div className="flex flex-col max-w-[80%]">
+      <div className="flex max-w-[80%] flex-col">
         <div
           className={cn(
-            'px-4 py-2 rounded-lg',
+            'rounded-lg px-4 py-2',
             isUser
               ? 'bg-primary text-primary-foreground rounded-tr-none'
               : 'bg-muted rounded-tl-none',
           )}
         >
-          <p className="whitespace-pre-wrap break-words">{content}</p>
+          <p className="break-words whitespace-pre-wrap">{content}</p>
         </div>
 
         <div
           className={cn(
-            'flex items-center text-xs text-muted-foreground mt-1',
+            'text-muted-foreground mt-1 flex items-center text-xs',
             isUser ? 'justify-end' : 'justify-start',
           )}
         >
@@ -52,7 +52,7 @@ export function Message({
               {status === 'read' ? (
                 <CheckCheck className="h-3 w-3" />
               ) : status === 'delivered' ? (
-                <CheckCheck className="h-3 w-3 text-muted-foreground" />
+                <CheckCheck className="text-muted-foreground h-3 w-3" />
               ) : (
                 <Check className="h-3 w-3" />
               )}

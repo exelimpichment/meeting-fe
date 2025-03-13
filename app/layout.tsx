@@ -1,6 +1,7 @@
 import { QueryProvider, ShadCnSidebarProvider } from '@/providers';
-import { AppSidebar } from '@/client/sidebar';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { AppSidebar } from '@/client/sidebar';
+import { ThemeProvider } from 'next-themes';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -27,18 +28,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <ShadCnSidebarProvider>
-            <AppSidebar />
-            <main className="flex-1">
-              <CustomSidebarTrigger />
-              {children}
-            </main>
-          </ShadCnSidebarProvider>
+          <ThemeProvider>
+            <ShadCnSidebarProvider>
+              <AppSidebar />
+              <main className="flex-1">
+                <CustomSidebarTrigger />
+
+                {children}
+              </main>
+            </ShadCnSidebarProvider>
+          </ThemeProvider>
         </QueryProvider>
       </body>
     </html>
