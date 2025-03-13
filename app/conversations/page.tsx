@@ -1,6 +1,8 @@
-// import { getConversation } from '@/components';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import MessageList from '@/client/conversations/components/MessageList';
+import {
+  MessageListSkeleton,
+  MessageList,
+} from '@/client/conversations/components';
 import { getQueryClient } from '@/lib/get-query-client';
 import { getConversation } from '@/fetchers';
 import { Suspense } from 'react';
@@ -16,7 +18,7 @@ const Conversations = () => {
   return (
     <>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <Suspense fallback={<div>Loading ...</div>}>
+        <Suspense fallback={<MessageListSkeleton />}>
           <MessageList />
         </Suspense>
       </HydrationBoundary>

@@ -6,7 +6,7 @@ import { getConversation } from '@/fetchers';
 import { Message } from '@/client';
 import React from 'react';
 
-const MessageList = () => {
+export const MessageList = () => {
   const { data: messages } = useSuspenseQuery({
     queryKey: ['conversation'],
     queryFn: () => getConversation(),
@@ -29,5 +29,3 @@ const MessageList = () => {
     </div>
   );
 };
-
-export default MessageList;
