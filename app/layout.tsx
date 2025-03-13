@@ -1,5 +1,5 @@
 import { QueryProvider, ShadCnSidebarProvider } from '@/providers';
-import { AppSidebar } from '@/components/sidebar/AppSidebar';
+import { AppSidebar } from '@/components/sidebar';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';

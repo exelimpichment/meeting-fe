@@ -1,7 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { ArchiveX, Command, File, Inbox, Send, Trash2 } from 'lucide-react';
+
+import { Command, MessageSquare } from 'lucide-react';
 
 import { Label } from '@/components/ui/label';
 import {
@@ -29,35 +30,35 @@ const data = {
   },
   navMain: [
     {
-      title: 'Inbox',
-      url: '#',
-      icon: Inbox,
+      title: 'Conversations',
+      url: 'conversations',
+      icon: MessageSquare,
       isActive: true,
     },
-    {
-      title: 'Drafts',
-      url: '#',
-      icon: File,
-      isActive: false,
-    },
-    {
-      title: 'Sent',
-      url: '#',
-      icon: Send,
-      isActive: false,
-    },
-    {
-      title: 'Junk',
-      url: '#',
-      icon: ArchiveX,
-      isActive: false,
-    },
-    {
-      title: 'Trash',
-      url: '#',
-      icon: Trash2,
-      isActive: false,
-    },
+    // {
+    //   title: 'Drafts',
+    //   url: '#',
+    //   icon: File,
+    //   isActive: false,
+    // },
+    // {
+    //   title: 'Sent',
+    //   url: '#',
+    //   icon: Send,
+    //   isActive: false,
+    // },
+    // {
+    //   title: 'Junk',
+    //   url: '#',
+    //   icon: ArchiveX,
+    //   isActive: false,
+    // },
+    // {
+    //   title: 'Trash',
+    //   url: '#',
+    //   icon: Trash2,
+    //   isActive: false,
+    // },
   ],
   mails: [
     {
@@ -143,7 +144,9 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export const AppSidebar = ({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) => {
   // Note: I'm using state to show active item.
   // IRL you should use the url/router.
   const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
@@ -259,4 +262,4 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </Sidebar>
     </Sidebar>
   );
-}
+};
