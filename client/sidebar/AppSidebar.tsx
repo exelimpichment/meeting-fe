@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { Command, MessageSquare } from 'lucide-react';
 
-import { Label } from '@/components/ui/label';
+import { Label } from '@/client/ui/label';
 import {
   Sidebar,
   SidebarContent,
@@ -17,9 +17,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/components/ui/sidebar';
-import { Switch } from '@/components/ui/switch';
-import { NavUser } from '@/components/navbar';
+} from '@/client/ui/sidebar';
+import { Switch } from '@/client/ui/switch';
+import { NavUser } from '@/client/navbar';
 
 // This is sample data
 const data = {

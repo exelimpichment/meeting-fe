@@ -1,26 +1,17 @@
-import type React from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { cn } from '@/lib/utils';
-import { formatDistanceToNow } from 'date-fns';
+import { Avatar, AvatarFallback, AvatarImage } from '@/client/ui/avatar';
 import { Check, CheckCheck } from 'lucide-react';
-
-export type MessageProps = {
-  content: string;
-  sender: 'user' | 'assistant';
-  timestamp?: Date;
-  avatar?: string;
-  isLoading?: boolean;
-  status?: 'sent' | 'delivered' | 'read';
-};
+import { formatDistanceToNow } from 'date-fns';
+import { MessageProps } from '@/client';
+import { cn } from '@/lib/utils';
+import type React from 'react';
 
 export function Message({
   content,
   sender,
   timestamp = new Date(),
   avatar,
-  isLoading = false,
   status = 'sent',
-}: MessageProps) {
+}: Omit<MessageProps, 'id'>) {
   const isUser = sender === 'user';
 
   return (
@@ -46,15 +37,7 @@ export function Message({
               : 'bg-muted rounded-tl-none',
           )}
         >
-          {isLoading ? (
-            <div className="flex items-center gap-1">
-              <div className="h-2 w-2 rounded-full bg-current animate-bounce" />
-              <div className="h-2 w-2 rounded-full bg-current animate-bounce [animation-delay:0.2s]" />
-              <div className="h-2 w-2 rounded-full bg-current animate-bounce [animation-delay:0.4s]" />
-            </div>
-          ) : (
-            <p className="whitespace-pre-wrap break-words">{content}</p>
-          )}
+          <p className="whitespace-pre-wrap break-words">{content}</p>
         </div>
 
         <div

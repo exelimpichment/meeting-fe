@@ -1,60 +1,98 @@
-// messages.ts (or wherever getConversation is defined)
-export type Message = {
-  id: number;
-  message: string;
-  timestamp: string;
-};
+import { MessageProps } from '@/client';
 
-const messageList: Message[] = [
+const messageList: MessageProps[] = [
   {
+    content: 'Hello, I’m the first message!',
+    sender: 'assistant',
+    timestamp: new Date('2025-03-12T10:00:00Z'),
+    avatar: '/avatars/assistant.png',
     id: 0,
-    message: 'Hello, I’m the first message!',
-    timestamp: '2025-03-12T10:00:00Z',
+    status: 'read',
   },
-  { id: 1, message: 'Hey, how’s it going?', timestamp: '2025-03-12T10:01:15Z' },
   {
+    content: 'Hey, how’s it going?',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:01:15Z'),
+    avatar: '/avatars/user.png',
+    id: 1,
+    status: 'delivered',
+  },
+  {
+    content: 'Just checking in—any updates?',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:02:30Z'),
+    avatar: '/avatars/user.png',
     id: 2,
-    message: 'Just checking in—any updates?',
-    timestamp: '2025-03-12T10:02:30Z',
+    status: 'read',
   },
   {
+    content: 'LOL, that was hilarious!',
+    sender: 'assistant',
+    timestamp: new Date('2025-03-12T10:03:45Z'),
+    avatar: '/avatars/assistant.png',
     id: 3,
-    message: 'LOL, that was hilarious!',
-    timestamp: '2025-03-12T10:03:45Z',
+    status: 'read',
   },
   {
+    content: 'Can you send me the details?',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:05:00Z'),
+    avatar: '/avatars/user.png',
     id: 4,
-    message: 'Can you send me the details?',
-    timestamp: '2025-03-12T10:05:00Z',
+    status: 'sent',
   },
   {
+    content: 'I’m running a bit late today.',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:06:15Z'),
+    avatar: '/avatars/user.png',
     id: 5,
-    message: 'I’m running a bit late today.',
-    timestamp: '2025-03-12T10:06:15Z',
+    status: 'sent',
   },
   {
+    content:
+      'What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow?What’s the plan for tomorrow? What’s the plan for tomorrow?',
+    sender: 'assistant',
+    timestamp: new Date('2025-03-12T10:07:30Z'),
+    avatar: '/avatars/assistant.png',
     id: 6,
-    message: 'What’s the plan for tomorrow?',
-    timestamp: '2025-03-12T10:07:30Z',
+    status: 'read',
   },
   {
+    content: 'Cool, I’ll catch you later!',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:08:45Z'),
+    avatar: '/avatars/user.png',
     id: 7,
-    message: 'Cool, I’ll catch you later!',
-    timestamp: '2025-03-12T10:08:45Z',
+    status: 'delivered',
   },
   {
+    content: 'Did you see the news today?',
+    sender: 'assistant',
+    timestamp: new Date('2025-03-12T10:10:00Z'),
+    avatar: '/avatars/assistant.png',
     id: 8,
-    message: 'Did you see the news today?',
-    timestamp: '2025-03-12T10:10:00Z',
+    status: 'read',
   },
   {
+    content: 'Alright, let’s wrap this up soon.',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:11:15Z'),
+    avatar: '/avatars/user.png',
     id: 9,
-    message: 'Alright, let’s wrap this up soon.',
-    timestamp: '2025-03-12T10:11:15Z',
+    status: 'read',
+  },
+  {
+    content: 'Typing a response...',
+    sender: 'assistant',
+    timestamp: new Date(),
+    avatar: '/avatars/assistant.png',
+    id: 10,
+    status: 'sent',
   },
 ];
 
-export const getConversation = async (): Promise<Message[]> => {
+export const getConversation = async (): Promise<MessageProps[]> => {
   return new Promise((resolve) => {
     setTimeout(() => resolve(messageList), 2000);
   });

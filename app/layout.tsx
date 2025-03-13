@@ -1,10 +1,10 @@
 import { QueryProvider, ShadCnSidebarProvider } from '@/providers';
-import { AppSidebar } from '@/components/sidebar';
+import { AppSidebar } from '@/client/sidebar';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 
-import CustomSidebarTrigger from '@/components/sidebar/CustomSidebarTrigger';
+import CustomSidebarTrigger from '@/client/sidebar/CustomSidebarTrigger';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,7 +34,7 @@ export default function RootLayout({
         <QueryProvider>
           <ShadCnSidebarProvider>
             <AppSidebar />
-            <main>
+            <main className="flex-1">
               <CustomSidebarTrigger />
               {children}
             </main>

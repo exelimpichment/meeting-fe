@@ -1,7 +1,7 @@
 'use client';
 
-import { useSidebar } from '@/components/ui/sidebar';
-import { Button } from '@/components/ui/button';
+import { useSidebar } from '@/client/ui/sidebar';
+import { Button } from '@/client/ui/button';
 import { PanelLeft } from 'lucide-react';
 
 const CustomSidebarTrigger = () => {
