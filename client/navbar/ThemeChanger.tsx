@@ -1,21 +1,24 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import { Button } from '@/client/ui/button';
 import { SunMedium, Moon } from 'lucide-react';
+import { Button } from '@/client/ui/button';
+import { useTheme } from 'next-themes';
+import { cn } from '@/lib/utils';
+import React from 'react';
 
-export const ThemeChanger = () => {
+type ThemeChangerProps = React.ComponentProps<typeof Button>;
+
+export const ThemeChanger = ({ className, ...props }: ThemeChangerProps) => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div>
-      <Button
-        icon={theme !== 'light' ? SunMedium : Moon}
-        variant={'ghost'}
-        size={'icon'}
-        className="rounded-full"
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      />
-    </div>
+    <Button
+      icon={theme !== 'light' ? SunMedium : Moon}
+      variant={'ghost'}
+      size={'icon'}
+      className={cn('rounded-full', className)}
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      {...props}
+    />
   );
 };

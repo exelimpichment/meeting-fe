@@ -1,9 +1,14 @@
 'use client';
 
-import { ThemeChanger } from '@/client/navbar';
 import { useSidebar } from '@/client/ui/sidebar';
 import { Button } from '@/client/ui/button';
 import { PanelLeft } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+const ThemeChanger = dynamic(
+  () => import('@/client/navbar').then((mod) => mod.ThemeChanger),
+  { ssr: false },
+);
 
 const CustomSidebarTrigger = () => {
   const { toggleSidebar } = useSidebar();
@@ -18,7 +23,9 @@ const CustomSidebarTrigger = () => {
         className="rounded-full"
       />
 
-      <ThemeChanger />
+      <div>
+        <ThemeChanger />
+      </div>
     </div>
   );
 };
