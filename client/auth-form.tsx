@@ -1,5 +1,9 @@
-import { cn } from '@/lib/utils';
+import { UrlGenerator } from '@/client/common';
 import { Button } from '@/client/ui/button';
+import { Input } from '@/client/ui/input';
+import { Label } from '@/client/ui/label';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -7,8 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/client/ui/card';
-import { Input } from '@/client/ui/input';
-import { Label } from '@/client/ui/label';
 
 type AuthType = 'sign-in' | 'sign-up';
 
@@ -65,12 +67,12 @@ export function AuthForm({ className, authType, ...props }: AuthFormProps) {
                 <div className="grid gap-3">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    <a
+                    <Link
                       href="#"
                       className="ml-auto text-sm underline-offset-4 hover:underline"
                     >
                       Forgot your password?
-                    </a>
+                    </Link>
                   </div>
                   <Input id="password" type="password" required />
                 </div>
@@ -79,10 +81,13 @@ export function AuthForm({ className, authType, ...props }: AuthFormProps) {
                 </Button>
               </div>
               <div className="text-center text-sm">
-                {accountToggleText[authType].text}
-                <a href="#" className="underline underline-offset-4">
+                {accountToggleText[authType].text}{' '}
+                <Link
+                  href={accountToggleText[authType].href}
+                  className="underline underline-offset-4"
+                >
                   {accountToggleText[authType].link}
-                </a>
+                </Link>
               </div>
             </div>
           </form>
@@ -121,9 +126,11 @@ const accountToggleText = {
   'sign-in': {
     text: "Don't have an account?",
     link: 'Sign up',
+    href: UrlGenerator.signUp(),
   },
   'sign-up': {
     text: 'Already have an account?',
     link: 'Login',
+    href: UrlGenerator.signIn(),
   },
 };
