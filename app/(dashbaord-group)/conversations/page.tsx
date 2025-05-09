@@ -7,7 +7,7 @@ import { getQueryClient } from '@/lib/get-query-client';
 import { getConversation } from '@/fetchers';
 import { Suspense } from 'react';
 
-const Conversations = () => {
+const ConversationsPage = () => {
   const queryClient = getQueryClient();
 
   queryClient.prefetchQuery({
@@ -26,4 +26,4 @@ const Conversations = () => {
   );
 };
 
-export default Conversations;
+export default ConversationsPage;

@@ -1,11 +1,8 @@
-import { QueryProvider, ShadCnSidebarProvider } from '@/providers';
+import { QueryProvider } from '@/providers';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { AppSidebar } from '@/client/sidebar';
 import { ThemeProvider } from 'next-themes';
 import type { Metadata } from 'next';
 import './globals.css';
-
-import CustomSidebarTrigger from '@/client/sidebar/CustomSidebarTrigger';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,16 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <ThemeProvider>
-            <ShadCnSidebarProvider>
-              <AppSidebar />
-              <main className="flex-1">
-                <CustomSidebarTrigger />
-
-                {children}
-              </main>
-            </ShadCnSidebarProvider>
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </QueryProvider>
       </body>
     </html>
