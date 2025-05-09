@@ -23,7 +23,9 @@ const CustomSidebarTrigger = () => {
         className="rounded-full"
       />
 
-      <ThemeChanger />
+      <div>
+        <ThemeChanger />
+      </div>
     </div>
   );
 };
