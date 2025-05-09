@@ -14,7 +14,7 @@ const CustomSidebarTrigger = () => {
   const { toggleSidebar } = useSidebar();
 
   return (
-    <div className="flex items-center justify-between p-1">
+    <div className="sticky top-0 z-50 flex items-center justify-between bg-gray-950 p-1">
       <Button
         icon={PanelLeft}
         size={'icon'}
