@@ -55,9 +55,9 @@ export class UrlGenerator {
     return this.join(this.root, 'auth', 'sign-in');
   }
 
-  // static dashboard(): string {
-  //   return this.join(this.root, this.dashboardSegment);
-  // }
+  static dashboard(): string {
+    return this.join(this.root, this.dashboardSegment);
+  }
 
   // static agents({
   //   workspaceId,
