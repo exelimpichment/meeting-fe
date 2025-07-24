@@ -43,9 +43,15 @@ export const useAuthForm = () => {
       authType === AUTH_TYPES.SIGN_IN
         ? AuthService.loginUser(data)
         : AuthService.registerUser(data),
-    onSuccess: () => {
-      router.push(UrlGenerator.dashboard());
+
+    onSuccess: (_, variables) => {
+      if (variables.authType === AUTH_TYPES.SIGN_IN) {
+        router.push(UrlGenerator.conversations());
+      } else {
+        router.push(UrlGenerator.signIn());
+      }
     },
+
     onError: (error: Error) => {
       setAuthError(error.message || 'Authentication failed');
     },
