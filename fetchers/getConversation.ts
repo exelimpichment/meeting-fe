@@ -132,7 +132,9 @@ const messageList: MessageProps[] = [
   },
 ];
 
-export const getConversation = async (): Promise<MessageProps[]> => {
+export const getConversation = async (
+  conversationId: string,
+): Promise<MessageProps[]> => {
   return new Promise((resolve) => {
     setTimeout(() => resolve(messageList), 2000);
   });
