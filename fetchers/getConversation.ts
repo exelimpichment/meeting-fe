@@ -2,7 +2,7 @@ import { MessageProps } from '@/client';
 
 const messageList: MessageProps[] = [
   {
-    content: 'Hello, I’m the first message!',
+    content: "Hello, I'm the first message!",
     sender: 'assistant',
     timestamp: new Date('2025-03-12T10:00:00Z'),
     avatar: '/avatars/assistant.png',
@@ -10,7 +10,7 @@ const messageList: MessageProps[] = [
     status: 'read',
   },
   {
-    content: 'Hey, how’s it going?',
+    content: "Hey, how's it going?",
     sender: 'user',
     timestamp: new Date('2025-03-12T10:01:15Z'),
     avatar: '/avatars/user.png',
@@ -42,7 +42,7 @@ const messageList: MessageProps[] = [
     status: 'sent',
   },
   {
-    content: 'I’m running a bit late today.',
+    content: "I'm running a bit late today.",
     sender: 'user',
     timestamp: new Date('2025-03-12T10:06:15Z'),
     avatar: '/avatars/user.png',
@@ -51,7 +51,7 @@ const messageList: MessageProps[] = [
   },
   {
     content:
-      'What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow? What’s the plan for tomorrow?What’s the plan for tomorrow? What’s the plan for tomorrow?',
+      "What's the plan for tomorrow? What's the plan for tomorrow? What's the plan for tomorrow? What's the plan for tomorrow? What's the plan for tomorrow? What's the plan for tomorrow? What's the plan for tomorrow? What's the plan for tomorrow?What's the plan for tomorrow? What's the plan for tomorrow?",
     sender: 'assistant',
     timestamp: new Date('2025-03-12T10:07:30Z'),
     avatar: '/avatars/assistant.png',
@@ -59,7 +59,7 @@ const messageList: MessageProps[] = [
     status: 'read',
   },
   {
-    content: 'Cool, I’ll catch you later!',
+    content: "Cool, I'll catch you later!",
     sender: 'user',
     timestamp: new Date('2025-03-12T10:08:45Z'),
     avatar: '/avatars/user.png',
@@ -75,7 +75,7 @@ const messageList: MessageProps[] = [
     status: 'read',
   },
   {
-    content: 'Alright, let’s wrap this up soon.',
+    content: "Alright, let's wrap this up soon.",
     sender: 'user',
     timestamp: new Date('2025-03-12T10:11:15Z'),
     avatar: '/avatars/user.png',
@@ -88,6 +88,46 @@ const messageList: MessageProps[] = [
     timestamp: new Date(),
     avatar: '/avatars/assistant.png',
     id: 10,
+    status: 'sent',
+  },
+  {
+    content: 'Yes, I saw that. Quite interesting developments!',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:12:30Z'),
+    avatar: '/avatars/user.png',
+    id: 11,
+    status: 'read',
+  },
+  {
+    content: "I've prepared those files you requested earlier.",
+    sender: 'assistant',
+    timestamp: new Date('2025-03-12T10:13:45Z'),
+    avatar: '/avatars/assistant.png',
+    id: 12,
+    status: 'read',
+  },
+  {
+    content: 'Perfect! When can we schedule our next meeting?',
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:15:00Z'),
+    avatar: '/avatars/user.png',
+    id: 13,
+    status: 'delivered',
+  },
+  {
+    content: "I'm available tomorrow afternoon or Friday morning.",
+    sender: 'assistant',
+    timestamp: new Date('2025-03-12T10:16:15Z'),
+    avatar: '/avatars/assistant.png',
+    id: 14,
+    status: 'read',
+  },
+  {
+    content: "Friday morning works better for me. Let's say 10 AM?",
+    sender: 'user',
+    timestamp: new Date('2025-03-12T10:17:30Z'),
+    avatar: '/avatars/user.png',
+    id: 15,
     status: 'sent',
   },
 ];

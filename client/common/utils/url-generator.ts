@@ -1,6 +1,6 @@
 export class UrlGenerator {
   private static readonly root: string = '/';
-  private static readonly dashboardSegment: string = 'dashboard';
+  private static readonly conversationsSegment: string = 'conversations';
 
   private static join(...parts: string[]): string {
     // join parts with '/' and normalize multiple slashes to a single slash
@@ -55,9 +55,9 @@ export class UrlGenerator {
     return this.join(this.root, 'auth', 'sign-in');
   }
 
-  // static dashboard(): string {
-  //   return this.join(this.root, this.dashboardSegment);
-  // }
+  static conversations(): string {
+    return this.join(this.root, this.conversationsSegment);
+  }
 
   // static agents({
   //   workspaceId,
