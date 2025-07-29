@@ -1,11 +1,8 @@
+import { MessageListSkeleton } from '@/client/messages/components/MessageListSkeleton';
+import { generateMessagesQueryObject } from '@/client/messages/hooks/use-messages';
+import { MessageList } from '@/client/messages/components/MessageList';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import { CONVERSATIONS_KEY } from '@/client/conversations';
 import { getQueryClient } from '@/lib/get-query-client';
-import { getConversation } from '@/fetchers';
-import {
-  MessageListSkeleton,
-  MessageList,
-} from '@/client/conversations/components';
 import { Suspense } from 'react';
 
 type ConversationsPageProps = {
@@ -19,10 +16,7 @@ export default async function ConversationsPage({
 
   const queryClient = getQueryClient();
 
-  queryClient.prefetchQuery({
-    queryKey: [CONVERSATIONS_KEY, conversationId],
-    queryFn: () => getConversation(conversationId),
-  });
+  queryClient.prefetchQuery(generateMessagesQueryObject(conversationId));
 
   return (
     <>

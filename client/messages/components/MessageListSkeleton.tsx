@@ -1,4 +1,4 @@
-import { MessageSkeleton } from '@/client';
+import { MessageSkeleton } from '@/client/messages/components/MessageSkeleton';
 
 export const MessageListSkeleton = () => {
   return (

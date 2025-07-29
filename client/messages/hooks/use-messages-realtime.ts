@@ -2,14 +2,14 @@
 
 import { useEffect } from 'react';
 
-export const useConversationRealtime = ({
+export const useMessagesRealtime = ({
   conversationId,
 }: {
   conversationId: string;
 }) => {
   useEffect(() => {
     const socket = new WebSocket(
-      `${process.env.NEXT_PUBLIC_API_URL}/conversations/realtime`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/conversations/realtime`,
     );
 
     socket.onmessage = (event) => {

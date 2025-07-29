@@ -1,6 +1,6 @@
 import { AppSidebar } from '@/client/sidebar';
 import CustomSidebarTrigger from '@/client/sidebar/CustomSidebarTrigger';
-import { ShadCnSidebarProvider } from '@/providers';
+import { ShadCnSidebarProvider } from '@/providers/ShadCnSidebarProvider';
 
 export default function DashboardGroupLayout({
   children,

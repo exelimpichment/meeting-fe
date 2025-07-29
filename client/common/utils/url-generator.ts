@@ -59,6 +59,10 @@ export class UrlGenerator {
     return this.join(this.root, this.conversationsSegment);
   }
 
+  static conversation(conversationId: string): string {
+    return this.join(this.root, this.conversationsSegment, conversationId);
+  }
+
   // static agents({
   //   workspaceId,
   //   shareToken,
