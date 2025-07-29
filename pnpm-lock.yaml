@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@exelimpichment/meeting-contracts':
+        specifier: 0.0.3
+        version: 0.0.3
       '@hookform/resolvers':
         specifier: 5.0.1
         version: 5.0.1(react-hook-form@7.56.3(react@19.0.0))
@@ -731,6 +734,9 @@ packages:
   '@eslint/plugin-kit@0.2.7':
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@exelimpichment/meeting-contracts@0.0.3':
+    resolution: {integrity: sha512-XEQJrs0CQD7kmAoQgX0wzn0qBtDbp9cf9xQNm+crNvZexTbeR+G8XZLaSq70XY2DTP5ILKHINM48wF5H/A9E0Q==, tarball: https://npm.pkg.github.com/download/@exelimpichment/meeting-contracts/0.0.3/ddb6d7ccb93a2c4e1a875fcd266b66348de5c515}
 
   '@floating-ui/core@1.6.9':
     resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
@@ -3915,6 +3921,8 @@ snapshots:
     dependencies:
       '@eslint/core': 0.12.0
       levn: 0.4.1
+
+  '@exelimpichment/meeting-contracts@0.0.3': {}
 
   '@floating-ui/core@1.6.9':
     dependencies:
