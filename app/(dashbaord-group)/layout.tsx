@@ -13,7 +13,7 @@ export default function DashboardGroupLayout({
       <main className="flex-1">
         <CustomSidebarTrigger />
 
-        {children}
+        {/* {children} */}
       </main>
     </ShadCnSidebarProvider>
   );

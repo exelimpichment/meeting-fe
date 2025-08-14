@@ -1,8 +1,6 @@
-import * as types from '@exelimpichment/meeting-contracts';
+import type { conversations } from '@exelimpichment/messenger';
 
-type Conversations = types.ApiEndpoints['GET /api/conversations/']['response'];
-
-export const getConversations = async (): Promise<Conversations> => {
+export const getConversations = async (): Promise<conversations[]> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/conversations`,
     {

@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@exelimpichment/meeting-contracts':
-        specifier: 0.0.3
-        version: 0.0.3
+      '@exelimpichment/meeting-api-gateway':
+        specifier: 0.0.5
+        version: 0.0.5(typescript@5.8.2)
+      '@exelimpichment/messenger':
+        specifier: 0.0.5
+        version: 0.0.5(typescript@5.8.2)
       '@hookform/resolvers':
         specifier: 5.0.1
         version: 5.0.1(react-hook-form@7.56.3(react@19.0.0))
@@ -735,8 +738,17 @@ packages:
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@exelimpichment/meeting-contracts@0.0.3':
-    resolution: {integrity: sha512-XEQJrs0CQD7kmAoQgX0wzn0qBtDbp9cf9xQNm+crNvZexTbeR+G8XZLaSq70XY2DTP5ILKHINM48wF5H/A9E0Q==, tarball: https://npm.pkg.github.com/download/@exelimpichment/meeting-contracts/0.0.3/ddb6d7ccb93a2c4e1a875fcd266b66348de5c515}
+  '@exelimpichment/meeting-api-gateway@0.0.2':
+    resolution: {integrity: sha512-pknAX6Poi1a2BHgnfMXJ3okkyLHtvgDmVL93BxyPjjAvYkd6uLKP00h8mhkv5GzAPYlPm81uLcCXSItBWaI2EQ==, tarball: https://npm.pkg.github.com/download/@exelimpichment/meeting-api-gateway/0.0.2/29e83e92bc7a17a4a44249afd13f9557619b5342}
+
+  '@exelimpichment/meeting-api-gateway@0.0.5':
+    resolution: {integrity: sha512-fYJriv2mQIPhjHWovJWMRoNvsYTAbnXMZphRCeI/5SbR/dWyH5EET2uS/6qRXklWcU33VjZFKl1FWDDk6JP1UQ==, tarball: https://npm.pkg.github.com/download/@exelimpichment/meeting-api-gateway/0.0.5/c6072ba869065e472c043d13cb3609fb7af796dc}
+
+  '@exelimpichment/messenger@0.0.2':
+    resolution: {integrity: sha512-Zr7T3Mhk8gBBR1zFHhFsoTK3LYcKKjcPiRxYLbhYfL3D/EiJgxizslLJb0RXKERuzZBAF4tpHGb2pONnwdAfPw==, tarball: https://npm.pkg.github.com/download/@exelimpichment/messenger/0.0.2/c4eb8098cfce8393b8fe7ad783114ab63f2321cb}
+
+  '@exelimpichment/messenger@0.0.5':
+    resolution: {integrity: sha512-rMt9mECQLhbPP1Qo5onL0AUEOgRGHwf7/BDCSLH3bPnr3TGIxxGKR7IRR/fluox0f/4b2529oisqFYIfyhp+4Q==, tarball: https://npm.pkg.github.com/download/@exelimpichment/messenger/0.0.5/21d9b9f7682aefbda1f501be2b1dd6d1b41565ae}
 
   '@floating-ui/core@1.6.9':
     resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
@@ -982,6 +994,18 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
+
+  '@prisma/client@6.6.0':
+    resolution: {integrity: sha512-vfp73YT/BHsWWOAuthKQ/1lBgESSqYqAWZEYyTdGXyFAHpmewwWL2Iz6ErIzkj4aHbuc6/cGSsE6ZY+pBO04Cg==}
+    engines: {node: '>=18.18'}
+    peerDependencies:
+      prisma: '*'
+      typescript: '>=5.1.0'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+      typescript:
+        optional: true
 
   '@radix-ui/primitive@1.1.1':
     resolution: {integrity: sha512-SJ31y+Q/zAyShtXJc8x83i9TYdbAfHZ++tUZnvjJJqFjzsdUnKsxPL6IEtBlxKkU7yzer//GQtZSV4GbldL3YA==}
@@ -3922,7 +3946,35 @@ snapshots:
       '@eslint/core': 0.12.0
       levn: 0.4.1
 
-  '@exelimpichment/meeting-contracts@0.0.3': {}
+  '@exelimpichment/meeting-api-gateway@0.0.2(typescript@5.8.2)':
+    dependencies:
+      '@prisma/client': 6.6.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - prisma
+      - typescript
+
+  '@exelimpichment/meeting-api-gateway@0.0.5(typescript@5.8.2)':
+    dependencies:
+      '@prisma/client': 6.6.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - prisma
+      - typescript
+
+  '@exelimpichment/messenger@0.0.2(typescript@5.8.2)':
+    dependencies:
+      '@prisma/client': 6.6.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - prisma
+      - typescript
+
+  '@exelimpichment/messenger@0.0.5(typescript@5.8.2)':
+    dependencies:
+      '@exelimpichment/meeting-api-gateway': 0.0.2(typescript@5.8.2)
+      '@exelimpichment/messenger': 0.0.2(typescript@5.8.2)
+      '@prisma/client': 6.6.0(typescript@5.8.2)
+    transitivePeerDependencies:
+      - prisma
+      - typescript
 
   '@floating-ui/core@1.6.9':
     dependencies:
@@ -4102,6 +4154,10 @@ snapshots:
       fastq: 1.19.1
 
   '@nolyfill/is-core-module@1.0.39': {}
+
+  '@prisma/client@6.6.0(typescript@5.8.2)':
+    optionalDependencies:
+      typescript: 5.8.2
 
   '@radix-ui/primitive@1.1.1': {}
 

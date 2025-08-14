@@ -73,7 +73,7 @@ export const AppSidebar = ({
   const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
   const { setOpen } = useSidebar();
 
-  const { data: conversationsData } = useConversations();
+  // const { data: conversationsData } = useConversations();
 
   return (
     <Sidebar
@@ -163,15 +163,15 @@ export const AppSidebar = ({
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup className="px-0">
-            {/* <SidebarGroupContent>
-              {conversationsData.conversations.map((conversation) => (
+            <SidebarGroupContent>
+              {/* {conversationsData.map((conversation) => (
                 <Link
                   href={UrlGenerator.conversation(conversation.id)}
                   key={conversation.id}
                   className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground flex flex-col items-start gap-2 border-b p-4 text-sm leading-tight whitespace-nowrap last:border-b-0"
                 >
                   <div className="flex w-full items-center gap-2">
-                    <span>{name}</span>{' '}
+                    <span>{conversation.name}</span>{' '}
                     <span className="ml-auto text-xs">{date}</span>
                   </div>
 
@@ -179,8 +179,8 @@ export const AppSidebar = ({
                     {teaser}
                   </span>
                 </Link>
-              ))}
-            </SidebarGroupContent> */}
+              ))} */}
+            </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
       </Sidebar>
