@@ -1,10 +1,8 @@
-import { messages, users } from '@exelimpichment/messenger';
-
-type MessageWithUser = messages & { users: users };
+import { ApiResponses } from '@exelimpichment/messenger';
 
 export const getMessagesWithUser = async (
   conversationId: string,
-): Promise<MessageWithUser[]> => {
+): Promise<ApiResponses['GET api/conversations']> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/conversations/${conversationId}/messages`,
     {

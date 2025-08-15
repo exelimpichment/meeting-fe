@@ -1,6 +1,9 @@
-import type { conversations } from '@exelimpichment/messenger';
+import type { ApiResponses } from '@exelimpichment/messenger';
 
-export const getConversations = async (): Promise<conversations[]> => {
+type GetConversationsResponse =
+  ApiResponses['GET /api/conversations/:id/messages'];
+
+export const getConversations = async (): Promise<GetConversationsResponse> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/conversations`,
     {
