@@ -1,15 +1,6 @@
-import { MESSAGES_KEY } from '@/client/constants';
-import { getMessagesWithUser } from '@/fetchers/messages/get-messages-with-user';
+import { generateMessagesQueryObject } from '@/client/messages/query-options/generate-messages-query-object';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { queryOptions } from '@tanstack/react-query';
 
 export const useMessages = ({ conversationId }: { conversationId: string }) => {
   return useSuspenseQuery(generateMessagesQueryObject(conversationId));
-};
-
-export const generateMessagesQueryObject = (conversationId: string) => {
-  return queryOptions({
-    queryKey: [MESSAGES_KEY, conversationId],
-    queryFn: () => getMessagesWithUser(conversationId),
-  });
 };

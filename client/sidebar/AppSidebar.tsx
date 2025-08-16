@@ -73,7 +73,7 @@ export const AppSidebar = ({
   const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
   const { setOpen } = useSidebar();
 
-  // const { data: conversationsData } = useConversations();
+  const { data: conversationsData } = useConversations();
 
   return (
     <Sidebar

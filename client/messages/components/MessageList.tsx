@@ -9,13 +9,13 @@ import React from 'react';
 export const MessageList = () => {
   const { conversationId } = useParams<{ conversationId: string }>();
 
-  // const { data: messages } = useMessages({ conversationId });
-  // useMessagesRealtime({ conversationId });
+  const { data: messages } = useMessages({ conversationId });
+  useMessagesRealtime({ conversationId });
 
   return (
     <div className="flex w-full flex-col items-center">
       <div className="flex w-4/5 flex-col">
-        {/* {messages.map((message) => (
+        {messages.map((message) => (
           <Message
             content={message.content}
             sender={message.users.name === 'assistant' ? 'assistant' : 'user'}
@@ -25,7 +25,7 @@ export const MessageList = () => {
             // status={message.status}
             status={'delivered'}
           />
-        ))} */}
+        ))}
       </div>
     </div>
   );
