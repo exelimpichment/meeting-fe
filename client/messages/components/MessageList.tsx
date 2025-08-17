@@ -8,13 +8,11 @@ import React from 'react';
 
 export const MessageList = () => {
   const { conversationId } = useParams<{ conversationId: string }>();
-
-  const { data: messages } = useMessages({ conversationId });
   useMessagesRealtime({ conversationId });
-
+  const { data: messages } = useMessages({ conversationId });
   return (
-    <div className="flex w-full flex-col items-center">
-      <div className="flex w-4/5 flex-col">
+    <div className="flex w-full flex-1 shrink flex-col items-center overflow-y-auto">
+      <div className="flex w-4/5 flex-1 flex-col gap-2">
         {messages.map((message) => (
           <Message
             content={message.content}

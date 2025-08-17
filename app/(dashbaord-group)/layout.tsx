@@ -30,7 +30,7 @@ export default async function DashboardGroupLayout({
         <AppSidebar />
       </HydrationBoundary>
 
-      <main className="flex-1">
+      <main className="flex h-svh flex-1 flex-col overflow-hidden">
         <CustomSidebarTrigger />
 
         {children}
