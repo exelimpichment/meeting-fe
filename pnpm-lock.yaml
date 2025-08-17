@@ -12,8 +12,8 @@ importers:
         specifier: 0.0.6
         version: 0.0.6(typescript@5.8.2)
       '@exelimpichment/messenger':
-        specifier: 0.1.0
-        version: 0.1.0(typescript@5.8.2)
+        specifier: 0.1.1
+        version: 0.1.1(typescript@5.8.2)
       '@hookform/resolvers':
         specifier: 5.0.1
         version: 5.0.1(react-hook-form@7.56.3(react@19.0.0))
@@ -741,8 +741,8 @@ packages:
   '@exelimpichment/meeting-api-gateway@0.0.6':
     resolution: {integrity: sha512-1gYlPb6qkFU5QThDx6v695IlZTdrBC+8yChpCHxmT94xzu3qrXWQa2Lf07VzIUrB5cPdhKYjr9NnLRg/n+mwvQ==, tarball: https://npm.pkg.github.com/download/@exelimpichment/meeting-api-gateway/0.0.6/d514908a5e23fa92792710af10f2f6197a40fdc4}
 
-  '@exelimpichment/messenger@0.1.0':
-    resolution: {integrity: sha512-5CZ1aFc65zxDl4riKYZjehtqa9FvveheVty+cPr26wrM4pZlsRg4A+vMLGtGeFgVRoCKrcj314OHyoY12LZ0AA==, tarball: https://npm.pkg.github.com/download/@exelimpichment/messenger/0.1.0/8dab46bafc5628f52543594bfec7a592e64c7190}
+  '@exelimpichment/messenger@0.1.1':
+    resolution: {integrity: sha512-OzBt9JyoLz2uYkeOupPMqZ9DkPSDHyCwzWMQPBhyJUte3IXsAaxu1eLhy/xn0CDRw+78gZqrs8Fan1/pRQfVFQ==, tarball: https://npm.pkg.github.com/download/@exelimpichment/messenger/0.1.1/54d26f20633619b603b5dd58ff3b127b7a821515}
 
   '@floating-ui/core@1.6.9':
     resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
@@ -3947,7 +3947,7 @@ snapshots:
       - prisma
       - typescript
 
-  '@exelimpichment/messenger@0.1.0(typescript@5.8.2)':
+  '@exelimpichment/messenger@0.1.1(typescript@5.8.2)':
     dependencies:
       '@prisma/client': 6.6.0(typescript@5.8.2)
     transitivePeerDependencies:
