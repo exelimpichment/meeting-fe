@@ -1,10 +1,12 @@
-'use client';
-
+import { ConversationsListSkeleton } from '@/client/sidebar/ConversationsListSkeleton';
+import { ConversationsList } from '@/client/sidebar/ConversationsList';
+import { Command, MessageSquare } from 'lucide-react';
+import { Switch } from '@/client/ui/switch';
+import { NavUser } from '@/client/navbar';
+import { Label } from '@/client/ui/label';
+import { Suspense } from 'react';
 import * as React from 'react';
 
-import { Command, MessageSquare } from 'lucide-react';
-
-import { Label } from '@/client/ui/label';
 import {
   Sidebar,
   SidebarContent,
@@ -16,13 +18,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from '@/client/ui/sidebar';
-import { Switch } from '@/client/ui/switch';
-import { NavUser } from '@/client/navbar';
-import Link from 'next/link';
-import { UrlGenerator } from '@/client/common/utils/url-generator';
-import { useConversations } from '@/client/conversations/hooks/use-conversations';
 
 // This is sample data
 const data = {
@@ -70,10 +66,8 @@ export const AppSidebar = ({
 }: React.ComponentProps<typeof Sidebar>) => {
   // Note: I'm using state to show active item.
   // IRL you should use the url/router.
-  const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
-  const { setOpen } = useSidebar();
-
-  const { data: conversationsData } = useConversations();
+  // const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
+  // const { setOpen } = useSidebar();
 
   return (
     <Sidebar
@@ -109,7 +103,7 @@ export const AppSidebar = ({
           <SidebarGroup>
             <SidebarGroupContent className="px-1.5 md:px-0">
               <SidebarMenu>
-                {data.navMain.map((item) => (
+                {/* {data.navMain.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       tooltip={{
@@ -136,7 +130,7 @@ export const AppSidebar = ({
                       <span>{item.title}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
-                ))}
+                ))} */}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
@@ -151,9 +145,9 @@ export const AppSidebar = ({
       <Sidebar collapsible="none" className="hidden flex-1 md:flex">
         <SidebarHeader className="gap-3.5 border-b p-4">
           <div className="flex w-full items-center justify-between">
-            <div className="text-foreground text-base font-medium">
+            {/* <div className="text-foreground text-base font-medium">
               {activeItem?.title}
-            </div>
+            </div> */}
             <Label className="flex items-center gap-2 text-sm">
               <span>Unreads</span>
               <Switch className="shadow-none" />
@@ -164,22 +158,10 @@ export const AppSidebar = ({
         <SidebarContent>
           <SidebarGroup className="px-0">
             <SidebarGroupContent>
-              {/* {conversationsData.map((conversation) => (
-                <Link
-                  href={UrlGenerator.conversation(conversation.id)}
-                  key={conversation.id}
-                  className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground flex flex-col items-start gap-2 border-b p-4 text-sm leading-tight whitespace-nowrap last:border-b-0"
-                >
-                  <div className="flex w-full items-center gap-2">
-                    <span>{conversation.name}</span>{' '}
-                    <span className="ml-auto text-xs">{date}</span>
-                  </div>
-
-                  <span className="line-clamp-2 w-[260px] text-xs whitespace-break-spaces">
-                    {teaser}
-                  </span>
-                </Link>
-              ))} */}
+              <Suspense fallback={<ConversationsListSkeleton />}>
+                <ConversationsList />
+              </Suspense>
+              {/* <ConversationsListSkeleton /> */}
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
