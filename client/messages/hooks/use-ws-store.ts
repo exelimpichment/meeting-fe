@@ -23,7 +23,7 @@ export const useWsStore = create<WsStore>((set, get) => ({
 
     // create new ws only if none exists
     if (!ws) {
-      const wsUrl = `${process.env.NEXT_PUBLIC_API_URL}/ws/v1/messages?conversationId=${encodeURIComponent(conversationId)}`;
+      const wsUrl = `${process.env.NEXT_PUBLIC_API_URL}/ws/messages?conversation_id=${encodeURIComponent(conversationId)}`;
       const newWs = new WebSocket(wsUrl);
 
       newWs.onerror = (error) => {
