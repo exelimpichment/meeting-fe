@@ -1,8 +1,8 @@
 'use client';
 
+import { UrlGenerator } from '@/client/common/utils/url-generator';
 import GoogleLogo from '@/public/google-logo.svg';
 import AppleLogo from '@/public/apple-logo.svg';
-import { UrlGenerator } from '@/client/common';
 import { Button } from '@/client/ui/button';
 import { Input } from '@/client/ui/input';
 import { Label } from '@/client/ui/label';
@@ -15,7 +15,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/client/ui/card';
-import { useAuthForm } from '@/client/auth';
+import { useAuthForm } from '@/client/auth/hooks/useAuthForm';
 import { AuthType } from '@/client/auth/constants';
 
 interface AuthFormProps extends React.ComponentProps<'div'> {

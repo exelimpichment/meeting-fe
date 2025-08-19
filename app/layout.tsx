@@ -1,4 +1,4 @@
-import { QueryProvider } from '@/providers';
+import { QueryProvider } from '@/providers/QueryProvider';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import type { Metadata } from 'next';

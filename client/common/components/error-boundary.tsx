@@ -1,7 +1,11 @@
 'use client';
 
-import { FallbackComponentProps } from '@/client/common';
 import * as React from 'react';
+
+export type FallbackComponentProps = {
+  error: Error;
+  resetErrorBoundary: () => void;
+};
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;

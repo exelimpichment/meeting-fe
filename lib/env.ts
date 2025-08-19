@@ -5,7 +5,8 @@ const envSchema = z.object({
   // SERVER VARIABLES
 
   // CLIENT VARIABLES
-  NEXT_PUBLIC_BASE_URL: z.string().url().default('http://localhost:3000'),
+  NEXT_PUBLIC_BASE_URL: z.string().url().default('http://localhost:3001'),
+  NEXT_PUBLIC_API_URL: z.string().url().default('http://localhost:3000'),
 });
 
 // validate environment variables
@@ -14,6 +15,7 @@ const parseEnv = () => {
   const env = {
     NEXT_PUBLIC_BASE_URL:
       process.env.NEXT_PUBLIC_BASE_URL || process.env.BASE_URL,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || process.env.API_URL,
   };
 
   const result = envSchema.safeParse(env);

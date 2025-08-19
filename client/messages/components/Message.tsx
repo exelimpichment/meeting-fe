@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/client/ui/avatar';
+import { MessageProps } from '@/client/messages/types';
 import { Check, CheckCheck } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
-import { MessageProps } from '@/client';
 import { cn } from '@/lib/utils';
 import type React from 'react';
 

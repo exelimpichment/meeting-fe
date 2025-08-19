@@ -10,7 +10,7 @@ export class AuthService {
     console.log(data);
 
     const response = await fetch(
-      `${env.NEXT_PUBLIC_BASE_URL}/api/auth/sign-in`,
+      `${env.NEXT_PUBLIC_API_URL}/api/auth/sign-in`,
       {
         method: 'POST',
         headers: {

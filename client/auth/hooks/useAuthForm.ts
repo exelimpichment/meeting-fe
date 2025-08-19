@@ -1,8 +1,8 @@
 'use client';
 
+import { UrlGenerator } from '@/client/common/utils/url-generator';
 import { AUTH_TYPES, AuthType } from '@/client/auth/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { UrlGenerator } from '@/client/common/utils';
 import { useMutation } from '@tanstack/react-query';
 import { AuthService } from '@/client/auth/fetchers';
 import { useRouter } from 'next/navigation';

@@ -1,4 +1,4 @@
-import { checkAuthOrRedirect } from '@/client/auth/components';
+import { checkAuthOrRedirect } from '@/client/auth/components/isAccessTokenPresent';
 import { NextResponse, NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
