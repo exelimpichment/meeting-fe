@@ -8,8 +8,10 @@ import React from 'react';
 
 export const MessageList = () => {
   const { conversationId } = useParams<{ conversationId: string }>();
-  useMessagesRealtime({ conversationId });
   const { data: messages } = useMessages({ conversationId });
+
+  useMessagesRealtime({ conversationId });
+
   return (
     <div className="flex w-full flex-1 shrink flex-col items-center overflow-y-auto">
       <div className="flex w-4/5 flex-1 flex-col gap-2">
