@@ -1,5 +1,12 @@
-import { useEffect } from 'react';
 import { useWsStore } from './use-ws-store';
+import { useEffect } from 'react';
+// import { MessageEventType } from '@exelimpichment/messenger';
+
+export const MessageEventType = {
+  SEND: 'message.send',
+  EDIT: 'message.edit',
+  DELETE: 'message.delete',
+} as const;
 
 interface UseMessagesRealtimeParams {
   conversationId: string | null;
@@ -52,7 +59,12 @@ export const useMessagesRealtime = ({
   // Methods for sending actions via WS
   const sendMessage = (content: string): void => {
     if (ws?.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: 'new_message', content }));
+      ws.send(
+        JSON.stringify({
+          event: MessageEventType.SEND,
+          data: content,
+        }),
+      );
     } else {
       console.warn('WebSocket not open; message not sent');
     }
@@ -60,7 +72,15 @@ export const useMessagesRealtime = ({
 
   const editMessage = (messageId: string, newContent: string): void => {
     if (ws?.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: 'edit_message', messageId, newContent }));
+      ws.send(
+        JSON.stringify({
+          event: MessageEventType.EDIT,
+          data: {
+            messageId,
+            newContent,
+          },
+        }),
+      );
     } else {
       console.warn('WebSocket not open; edit not sent');
     }
@@ -68,7 +88,12 @@ export const useMessagesRealtime = ({
 
   const deleteMessage = (messageId: string): void => {
     if (ws?.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({ type: 'delete_message', messageId }));
+      ws.send(
+        JSON.stringify({
+          event: MessageEventType.DELETE,
+          data: messageId,
+        }),
+      );
     } else {
       console.warn('WebSocket not open; delete not sent');
     }
