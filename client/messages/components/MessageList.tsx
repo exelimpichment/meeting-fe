@@ -1,6 +1,6 @@
 'use client';
 
-import { useMessagesRealtime } from '@/client/messages/hooks/use-messages-realtime';
+import { useSocketClient } from '@/client/messages/hooks/use-socket-client';
 import { useMessages } from '@/client/messages/hooks/use-messages';
 import { Message } from '@/client/messages/components/Message';
 import { useParams } from 'next/navigation';
@@ -10,7 +10,9 @@ export const MessageList = () => {
   const { conversationId } = useParams<{ conversationId: string }>();
   const { data: messages } = useMessages({ conversationId });
 
-  useMessagesRealtime({ conversationId });
+  useSocketClient({
+    socketUrl: `${process.env.NEXT_PUBLIC_API_URL}/ws/messages?conversation_id=${encodeURIComponent(conversationId)}`,
+  });
 
   return (
     <div className="flex w-full flex-1 shrink flex-col items-center overflow-y-auto">
