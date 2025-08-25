@@ -11,8 +11,8 @@ interface UseSocketClientParams {
 
 export const useSocketClient = ({ socketUrl }: UseSocketClientParams) => {
   const { sendMessage: wsSendMessage } = useWebSocket(socketUrl, {
-    onOpen: () => console.log('opened'),
     onClose: () => console.log('closed'),
+    onOpen: () => console.log('opened'),
     share: true,
   });
 
