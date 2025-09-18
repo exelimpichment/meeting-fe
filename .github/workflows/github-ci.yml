@@ -1,0 +1,29 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  trigger-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger external test service
+        run: |
+          echo "Sending request to external test service..."
+          response=$(curl -s -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "agent_id": "${{ vars.AGENT_ID }}",
+              "tester_ids": ${{ vars.TESTER_IDS }},
+              "owner": "${{ github.repository_owner }}",
+              "repo": "${{ github.event.repository.name }}",
+              "branch": "${{ github.ref_name }}",
+              "sha": "${{ github.sha }}",
+              "commit_message": "${{ github.event.head_commit.message }}"
+            }' \
+            https://3059d97dc4e6.ngrok-free.app/api/events/external-tests)
+          echo "Response: $response"
+          echo "Tests triggered. External service will update GitHub when done."
