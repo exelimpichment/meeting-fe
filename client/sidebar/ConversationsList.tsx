@@ -7,7 +7,6 @@ import Link from 'next/link';
 
 export const ConversationsList = () => {
   const { data: conversationsData } = useConversations();
-  console.log(conversationsData);
 
   return (
     <>

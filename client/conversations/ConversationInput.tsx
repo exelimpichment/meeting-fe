@@ -1,21 +1,34 @@
 'use client';
 
-import { useMessagesRealtime } from '@/client/messages/hooks/use-messages-realtime';
+import { useSocketClient } from '@/client/messages/hooks/use-socket-client';
+import { MessageEventType } from '@/client/messages/types';
 import { useParams } from 'next/navigation';
 import { Button } from '@/client/ui/button';
 import { Input } from '@/client/ui/input';
 import { ArrowUp } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useEnterKey } from '@/client/common/hooks/use-enter-key';
 
 export const ConversationInput = () => {
   const { conversationId } = useParams<{ conversationId: string }>();
   const [input, setInput] = useState('');
 
-  const { sendMessage } = useMessagesRealtime({ conversationId });
+  const { sendMessage } = useSocketClient({
+    socketUrl: `${process.env.NEXT_PUBLIC_API_URL}/ws/messages?conversation_id=${encodeURIComponent(conversationId)}`,
+  });
 
-  const sendMessageHandler = (input: string) => {
-    sendMessage(input);
-  };
+  const handleSendMessage = useCallback(() => {
+    if (!input.trim()) return;
+
+    sendMessage({
+      event: MessageEventType.SEND,
+      data: { message: input, conversationId },
+    });
+
+    setInput('');
+  }, [conversationId, input, sendMessage]);
+
+  const { handleKeyDown } = useEnterKey(handleSendMessage);
 
   return (
     <div className="flex w-full items-center justify-center pb-4">
@@ -26,15 +39,14 @@ export const ConversationInput = () => {
         autoComplete="off"
         value={input}
         onChange={(event) => setInput(event.target.value)}
+        onKeyDown={handleKeyDown}
       />
 
       <Button
         disabled={!input.trim()}
         icon={ArrowUp}
         className="h-7 w-7 -translate-x-10 rounded-full p-0"
-        onClick={() => {
-          sendMessageHandler(input);
-        }}
+        onClick={handleSendMessage}
       ></Button>
     </div>
   );
